@@ -17,6 +17,7 @@ public class Coin : MonoBehaviour
     private void ActivateTrigger()
     {
         _trigger.isTrigger = true;
+        gameObject.layer = LayerMask.NameToLayer("CoinUse");
     }
 
     private void OnTriggerEnter2D(Collider2D col)

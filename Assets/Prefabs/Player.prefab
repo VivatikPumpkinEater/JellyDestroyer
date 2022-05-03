@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3844776772076164428}
   - component: {fileID: 1985482031587129994}
   - component: {fileID: 1461191380}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JellyFace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d498d6a8773b3094dafd3a21860f0b0f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,7 +123,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.1820682, y: -0.028344717}
+  m_ConnectedAnchor: {x: 1.1820681, y: -0.028344687}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -143,7 +143,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.2086257, y: -0.020395318}
+  m_ConnectedAnchor: {x: 1.2086257, y: -0.02039514}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -163,7 +163,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.1708072, y: 0.04435572}
+  m_ConnectedAnchor: {x: 1.1708069, y: 0.044355694}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -183,7 +183,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.19953, y: 0.032416176}
+  m_ConnectedAnchor: {x: 1.19953, y: 0.032416504}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0.5
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 5134433471724932400}
   - component: {fileID: 5134433471724932403}
   - component: {fileID: 6718229625879717384}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 5134433471917058930}
   - component: {fileID: 5134433471917058941}
   - component: {fileID: 4558423697500180780}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 5134433472083228232}
   - component: {fileID: 5134433472083228235}
   - component: {fileID: 7007192588688624085}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -654,7 +654,7 @@ GameObject:
   - component: {fileID: 5134433472391676534}
   - component: {fileID: 5134433472391676529}
   - component: {fileID: 4481318556247776900}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -799,7 +799,7 @@ GameObject:
   - component: {fileID: 5134433472547275405}
   - component: {fileID: 5134433472547275404}
   - component: {fileID: 1161917147901511889}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,7 +944,7 @@ GameObject:
   - component: {fileID: 5134433472583013922}
   - component: {fileID: 5134433472583013933}
   - component: {fileID: 4165386191495795507}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1087,7 @@ GameObject:
   - component: {fileID: 5134433472586875646}
   - component: {fileID: 4194224517995902797}
   - component: {fileID: 4072647288839455330}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1159,7 +1159,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1848c0a90c862ba49a54202940a5b73c, type: 3}
   m_Color: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
   m_FlipX: 0
@@ -1198,8 +1198,8 @@ MonoBehaviour:
   - {fileID: 5134433472547275395}
   - {fileID: 5134433471917058940}
   m_Bounds:
-    m_Center: {x: 0.37249458, y: 0.25378168, z: 0}
-    m_Extent: {x: 1.27999, y: 1.27999, z: 0}
+    m_Center: {x: 0.37249458, y: 0.2537818, z: 0}
+    m_Extent: {x: 1.27999, y: 1.2799898, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!114 &4194224517995902797
@@ -1228,7 +1228,6 @@ MonoBehaviour:
   - {fileID: 5134433472688860914}
   - {fileID: 5134433472547275407}
   - {fileID: 5134433471917058931}
-  _speed: 5
   _jumpPower: 10
 --- !u!114 &4072647288839455330
 MonoBehaviour:
@@ -1242,6 +1241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b947de1a9f06b47bdba748b7827cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _center: {fileID: 6852776131185813735}
   _rigidbodyInfos:
   - {fileID: 3543768400887831316}
   - {fileID: 4535210159382490612}
@@ -1270,7 +1270,7 @@ GameObject:
   - component: {fileID: 5134433472688860912}
   - component: {fileID: 5134433472688860915}
   - component: {fileID: 6336704926943528043}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1415,7 +1415,7 @@ GameObject:
   - component: {fileID: 5134433472776644500}
   - component: {fileID: 5134433472776644503}
   - component: {fileID: 2135555572291695034}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1560,7 +1560,7 @@ GameObject:
   - component: {fileID: 5134433473357502013}
   - component: {fileID: 5134433473357502012}
   - component: {fileID: 6640732362739876813}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1705,7 +1705,7 @@ GameObject:
   - component: {fileID: 5134433473436778979}
   - component: {fileID: 5134433473436778978}
   - component: {fileID: 4535210159382490612}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1850,7 +1850,7 @@ GameObject:
   - component: {fileID: 5134433473604441243}
   - component: {fileID: 5134433473604441242}
   - component: {fileID: 4498208220740133246}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1995,7 +1995,7 @@ GameObject:
   - component: {fileID: 5134433473735409300}
   - component: {fileID: 5134433473735409303}
   - component: {fileID: 3543768400887831316}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

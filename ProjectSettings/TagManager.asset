@@ -13,11 +13,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CoinUse
+  - CoinNoUse
+  - Player
+  - Rock
+  - NoInteractive
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: FlyEnemy
+    uniqueID: 468114475
     locked: 0

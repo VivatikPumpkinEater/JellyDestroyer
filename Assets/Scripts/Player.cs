@@ -35,18 +35,34 @@ public class Player : MonoBehaviour
     {
         if (_center.velocity.y < -10)
         {
-            Debug.Log(_center.velocity.y);
-            var inRadius = Physics2D.OverlapCircleAll(_center.position, 4);
+            //var inRadius = Physics2D.OverlapCircleAll(_center.position, 4);
+            var slamPunch = Physics2D.OverlapBoxAll(_center.position, new Vector2(3, 1), 0);
 
-            for (int i = 0; i < inRadius.Length; i++)
+            for (int i = 0; i < slamPunch.Length; i++)
             {
-                var rb = inRadius[i].attachedRigidbody;
+                //var rb = inRadius[i].attachedRigidbody;
+                var rb = slamPunch[i].attachedRigidbody;
 
-                if (rb && !rb.GetComponent<RigidbodyInfo>())
+                if (rb && !rb.GetComponent<RigidbodyInfo>() && !rb.gameObject.layer.Equals(LayerMask.GetMask("CoinUse")))
                 {
-                    rb.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
+                    if (rb.position.x > _center.position.x)
+                    {
+                        rb.AddForce((Vector2.up * 2 + Vector2.right) * 10, ForceMode2D.Impulse);
+                    }
+                    else
+                    {
+                        rb.AddForce((Vector2.up * 2 + Vector2.left) * 10, ForceMode2D.Impulse);
+                    }
+                    
                 }
             }
         }
     }
+
+    /*private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawCube(_center.position - new Vector2(0, 0.5f), new Vector2(3.5f, 0.5f));
+    }*/
 }
