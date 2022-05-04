@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class PickUp : MonoBehaviour
 {
-    [SerializeField] private CircleCollider2D _trigger = null;
+    [SerializeField] protected CircleCollider2D _trigger = null;
 
     private void Start()
     {
@@ -14,13 +13,13 @@ public class Coin : MonoBehaviour
         Invoke("ActivateTrigger", 1f);
     }
 
-    private void ActivateTrigger()
+    protected virtual void ActivateTrigger()
     {
         _trigger.isTrigger = true;
-        gameObject.layer = LayerMask.NameToLayer("CoinUse");
+        gameObject.layer = LayerMask.NameToLayer("Interactive");
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         var player = col.GetComponentInParent<Player>();
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2059280990927982192}
   - component: {fileID: 2059280990927982194}
   - component: {fileID: 2059280990927982193}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Box_dest_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 2059280990975286534}
   - component: {fileID: 2059280990975286528}
   - component: {fileID: 2059280990975286535}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Box_dest_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 2059280991064687940}
   - component: {fileID: 2059280991064687942}
   - component: {fileID: 2059280991064687941}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Box_dest_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -402,7 +402,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2059280991494377752}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: DestroyBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 2059280991562301140}
   - component: {fileID: 2059280991562301142}
   - component: {fileID: 2059280991562301141}
-  m_Layer: 12
+  m_Layer: 8
   m_Name: Box_dest_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
