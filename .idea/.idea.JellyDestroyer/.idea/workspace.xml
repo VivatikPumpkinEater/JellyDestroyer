@@ -18,6 +18,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactive/InteractiveProps.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Traps/Rock.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WobblyText.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -83,7 +84,7 @@
       <workItem from="1651075921316" duration="519000" />
       <workItem from="1651076474402" duration="7276000" />
       <workItem from="1651302074661" duration="9391000" />
-      <workItem from="1651471185679" duration="7558000" />
+      <workItem from="1651471185679" duration="12507000" />
     </task>
     <servers />
   </component>
