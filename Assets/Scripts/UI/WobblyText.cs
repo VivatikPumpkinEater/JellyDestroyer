@@ -143,7 +143,7 @@ public class WobblyText : MonoBehaviour
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            Vector3 offset = Wobble(Time.time + i * waveSpeed.y);
+            Vector3 offset = Wobble(Time.time + i + waveSpeed.y);
 
             vertices[i] = vertices[i] + offset;
         }
