@@ -11,6 +11,8 @@ public class HealthManager : MonoBehaviour
     [SerializeField] protected ParticleSystem _DeadEffect = null;
     [SerializeField] private Coin _coin = null;
 
+    public System.Action DamageEvent;
+    
     private bool _acceptDamage = true;
     private Coroutine _resetAccept = null;
 
@@ -30,6 +32,7 @@ public class HealthManager : MonoBehaviour
             }
             else
             {
+                DamageEvent?.Invoke();
                 _resetAccept = StartCoroutine(ResetAcceptDamage());
                 Debug.Log("ResetAccept");
             }

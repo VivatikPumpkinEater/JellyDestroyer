@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 52801733}
   - component: {fileID: 65946792}
   - component: {fileID: 7956392848038959844}
+  - component: {fileID: 33965210}
   m_Layer: 10
   m_Name: Dumpling
   m_TagString: Untagged
@@ -233,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b947de1a9f06b47bdba748b7827cfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
   _center: {fileID: 23341666157400856}
   _rigidbodyInfos:
   - {fileID: 23341666157400794}
@@ -281,6 +283,7 @@ MonoBehaviour:
   - {fileID: 23341666157400778}
   - {fileID: 23341666157400781}
   - {fileID: 23341666157400784}
+  _lenghtJump: {x: 1, y: 2}
   _jumpPower: 5
 --- !u!255 &65946792
 FixedJoint2D:
@@ -321,6 +324,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &33965210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2726745748412837716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e8da3fb893410042b746f212d5f18af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Health: 3
+  _DeadEffect: {fileID: 0}
+  _coin: {fileID: 0}
 --- !u!1 &2839300871424933599
 GameObject:
   m_ObjectHideFlags: 0

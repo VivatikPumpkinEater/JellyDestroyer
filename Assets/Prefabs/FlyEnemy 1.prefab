@@ -70,7 +70,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 468114475
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: -2
   m_Sprite: {fileID: 6187809033718116244, guid: 3931d2e0d9998ef4c88bf8a269f9cb7d,
     type: 3}
@@ -164,7 +164,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 468114475
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: -1
   m_Sprite: {fileID: -320266179142836557, guid: 3931d2e0d9998ef4c88bf8a269f9cb7d,
     type: 3}
@@ -311,7 +311,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 468114475
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: -3
   m_Sprite: {fileID: -5585778157073730688, guid: 3931d2e0d9998ef4c88bf8a269f9cb7d,
     type: 3}
@@ -429,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58f0b42b4d5ef943817ab06e8cfd53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Health: 2
+  _Health: 1
   _DeadEffect: {fileID: 4836023580231668415, guid: 69246912af67d2e4a953595be7382128,
     type: 3}
   _coin: {fileID: 1320463731, guid: 0b4d79615fb833940b6ba22ca97f27d0, type: 3}
@@ -445,18 +445,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f183d6cdae331e24892ee35c6c266c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fly:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _enemyTarget:
+  _Speed: 2.5
+  _ReloadTimeAVG: 3
+  _ToShootTime: 3
+  _FaceAnimator: {fileID: 857400231}
+  _EnemyTargetLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _speed: 2.5
-  _player: {fileID: 0}
-  _pause: 3
+  _Angel: 180
+  _fireBall: {fileID: 4350095424600701929, guid: c888b0023e6d701449534595b365e15a,
+    type: 3}
 --- !u!1 &1994962844843239621
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,7 +523,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 468114475
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 3411146969485963548, guid: 3931d2e0d9998ef4c88bf8a269f9cb7d,
     type: 3}
@@ -549,6 +547,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1994962845371004108}
   - component: {fileID: 1994962845371004111}
+  - component: {fileID: 857400231}
   m_Layer: 0
   m_Name: Face
   m_TagString: Untagged
@@ -607,7 +606,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 468114475
-  m_SortingLayer: 1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: -6316835193629342686, guid: 3931d2e0d9998ef4c88bf8a269f9cb7d,
     type: 3}
@@ -621,3 +620,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &857400231
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994962845371004109}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76fc33f5f4d3d8d4e974cab454a53b3d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

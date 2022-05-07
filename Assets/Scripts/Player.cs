@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _damage = 1;
@@ -12,6 +13,13 @@ public class Player : MonoBehaviour
     public static Player Instance = null;
 
     public System.Action<Vector2> Rebound;
+
+    private PlayerHealth _playerHealth = null;
+
+    public PlayerHealth PlayerHealth
+    {
+        get => _playerHealth = _playerHealth ?? GetComponent<PlayerHealth>();
+    }
     
     private void Awake()
     {

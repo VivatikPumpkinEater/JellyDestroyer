@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2403546414518993403}
   - component: {fileID: 2403546414518993404}
   - component: {fileID: 2403546414518993405}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 2403546415158022039}
   - component: {fileID: 2403546415158022038}
   - component: {fileID: 1603114398}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Suriken_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
