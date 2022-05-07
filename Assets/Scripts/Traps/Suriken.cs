@@ -13,7 +13,7 @@ public class Suriken : MonoBehaviour
 
         if (sufferer)
         {
-            sufferer.Damage(_damage);
+            sufferer.Damage(_damage, this.transform.position);
         }
     }
 }

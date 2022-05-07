@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     
     public static Player Instance = null;
 
-    public System.Action<Vector2> Rebound;
+    public System.Action<Vector2, Rigidbody2D> Rebound;
 
     private PlayerHealth _playerHealth = null;
 
@@ -52,10 +52,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Punch(HealthManager sufferer)
+    private void Punch(HealthManager sufferer, Rigidbody2D rbCol)
     {
-        Rebound?.Invoke(sufferer.transform.position);
-        sufferer.Damage(_damage);
+        Rebound?.Invoke(sufferer.transform.position, rbCol);
+        sufferer.Damage(_damage, this.transform.position);
     }
 
     private void Slam()

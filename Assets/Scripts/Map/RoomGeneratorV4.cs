@@ -8,9 +8,11 @@ using Random = UnityEngine.Random;
 
 public class RoomGeneratorV4 : MonoBehaviour
 {
+    public static RoomGeneratorV4 Instance = null;
+
     [Header("Spawn")] [SerializeField] private GameObject _player = null;
 
-    [SerializeField] private List<GameObject> _enemy = new List<GameObject>();
+    [SerializeField] private List<EnemyBase> _enemy = new List<EnemyBase>();
     [SerializeField] private int _enemyInOneRoom = 4;
 
     [Header("Random settings")] [SerializeField]
@@ -25,6 +27,7 @@ public class RoomGeneratorV4 : MonoBehaviour
 
     [SerializeField] private RuleTile _groundTile = null;
     [SerializeField] private RuleTile _bgTile = null;
+    [SerializeField] private TileBase _border = null;
 
     [Header("Room settings")] [SerializeField]
     private int _roomCount = 5;
@@ -33,6 +36,9 @@ public class RoomGeneratorV4 : MonoBehaviour
     [SerializeField] private int _maxRoomSize = 20;
     [SerializeField] private int _offset = 5;
     [SerializeField] private int _widthTunnel = 2;
+
+    [Header("Props settings")] [SerializeField]
+    private List<InteractiveProps> _props = new List<InteractiveProps>();
 
     /*#region Testing
 
@@ -46,8 +52,25 @@ public class RoomGeneratorV4 : MonoBehaviour
     private List<Vector2Int> _rooms = new List<Vector2Int>(); // Active chunks for room generation
     private List<Vector2Int> _roomsInfo = new List<Vector2Int>(); // latter i replace this List to Dictionary =)
 
+    private List<EnemyBase> _enemies = new List<EnemyBase>();
+
+    public List<EnemyBase> EnemiesAll
+    {
+        get => _enemies;
+    }
+
+    public System.Action<List<EnemyBase>> Enemies;
+
     private void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
+        }
+
+        Instance = this;
+
         Initialize();
     }
 
@@ -86,6 +109,11 @@ public class RoomGeneratorV4 : MonoBehaviour
         {
             for (int x = 0; x < mapSize.x; x++)
             {
+                if (y == 0 || y == mapSize.y - 1 || x == 0 || x == mapSize.x - 1)
+                {
+                    _groundMap.SetTile(new Vector3Int(x, y, 1), _border);
+                }
+
                 _groundMap.SetTile(new Vector3Int(x, y, 0), _groundTile);
 
                 if (x == centerChunk.x && y == centerChunk.y)
@@ -162,19 +190,25 @@ public class RoomGeneratorV4 : MonoBehaviour
 
         try
         {
-            Instantiate(_player).transform.position = (Vector3Int)_rooms[0];
+            _player.transform.position = (Vector3Int)_rooms[0];
 
             for (int i = 1; i < _roomCount; i++)
             {
                 for (int j = 0; j < _enemyInOneRoom; j++)
                 {
-                    Instantiate(_enemy[Random.Range(0, _enemy.Count)]).transform.position =
+                    var enemy = Instantiate(_enemy[Random.Range(0, _enemy.Count)]);
+                    enemy.transform.position =
                         (Vector3Int)new Vector2Int(
                             Random.Range(_rooms[i].x - (_roomsInfo[i].x / 2), _rooms[i].x + (_roomsInfo[i].x / 2)),
                             Random.Range(_rooms[i].y - (_roomsInfo[i].y / 2), _rooms[i].y + (_roomsInfo[i].y / 2))
                         );
+
+                    _enemies.Add(enemy);
                 }
             }
+
+            Debug.Log(_enemies.Count);
+            Enemies?.Invoke(_enemies);
         }
         catch (Exception e)
         {
@@ -249,8 +283,9 @@ public class RoomGeneratorV4 : MonoBehaviour
         Debug.Log("===END tunnel v3===");
     }
 
-    private void TunnelDirection(Vector2Int from, Vector2Int to)
+    public void MapClear()
     {
+        //use JobSystem
     }
 
     private void ShuffleList<T>(List<T> list)

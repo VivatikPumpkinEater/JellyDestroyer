@@ -27,7 +27,7 @@ public class Rock : MonoBehaviour
             {
                 try
                 {
-                    sufferer.Damage(1);
+                    sufferer.Damage(1, this.transform.position);
                 }
                 catch (Exception e)
                 {

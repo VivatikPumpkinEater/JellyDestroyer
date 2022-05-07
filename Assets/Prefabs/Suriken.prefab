@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2403546414518993403}
   - component: {fileID: 2403546414518993404}
   - component: {fileID: 2403546414518993405}
+  - component: {fileID: 1305657845}
   m_Layer: 12
   m_Name: Suriken
   m_TagString: Untagged
@@ -95,6 +96,19 @@ HingeJoint2D:
   m_AngleLimits:
     m_LowerAngle: 0
     m_UpperAngle: 359
+--- !u!114 &1305657845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2403546414518993401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f3f9b7973b12c4c95dd8d342764b0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!1 &2403546415158022037
 GameObject:
   m_ObjectHideFlags: 0

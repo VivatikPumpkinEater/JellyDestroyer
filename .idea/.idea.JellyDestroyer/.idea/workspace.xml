@@ -16,6 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/BossController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ChangeableUI.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FireBall.cs" root0="FORCE_HIGHLIGHTING" />
@@ -91,7 +92,8 @@
       <workItem from="1651471185679" duration="12507000" />
       <workItem from="1651645765163" duration="6709000" />
       <workItem from="1651680373845" duration="8656000" />
-      <workItem from="1651845937366" duration="21217000" />
+      <workItem from="1651845937366" duration="27226000" />
+      <workItem from="1651950865283" duration="1270000" />
     </task>
     <servers />
   </component>

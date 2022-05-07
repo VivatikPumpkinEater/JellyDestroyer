@@ -35,7 +35,7 @@ public class FireBall : MonoBehaviour
 
         if (sufferer)
         {
-            sufferer.Damage(_damage);
+            sufferer.Damage(_damage, this.transform.position);
         }
         
         Destroy(gameObject);

@@ -15,3 +15,5 @@ MonoBehaviour:
   Name: Dumpling
   Health: 3
   Damage: 1
+  PlayerPrefab: {fileID: 2726745748412837716, guid: 2e5ae0844ec8526498047195ea5bc4e2,
+    type: 3}

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RigidbodyInfo : MonoBehaviour
 {
-    public System.Action<HealthManager> Collision;
+    public System.Action<HealthManager, Rigidbody2D> Collision;
     public System.Action Drag;
     
     private void OnCollisionEnter2D(Collision2D col)
@@ -15,7 +15,7 @@ public class RigidbodyInfo : MonoBehaviour
 
         if (sufferer && !sufferer.GetComponent<Player>())
         {
-            Collision?.Invoke(sufferer);
+            Collision?.Invoke(sufferer, this.gameObject.GetComponent<Rigidbody2D>());
         }
         else
         {

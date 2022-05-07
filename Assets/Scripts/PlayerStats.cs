@@ -9,4 +9,5 @@ public class PlayerStats : ScriptableObject
     [field: SerializeField] public string Name = String.Empty;
     [field: SerializeField] public int Health = 3;
     [field: SerializeField] public int Damage = 1;
+    [field: SerializeField] public GameObject PlayerPrefab = null;
 }

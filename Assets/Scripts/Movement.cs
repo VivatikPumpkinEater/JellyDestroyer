@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
         _screenSize = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight);
 
         Player.Instance.Rebound += ReboundImpulse;
+        Player.Instance.PlayerHealth.ImpulseEvent += ReboundImpulse;
     }
 
     void Update()
@@ -66,13 +67,23 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void ReboundImpulse(Vector2 position, Rigidbody2D rbCol)
+    {
+        Vector2 dir = ((Vector2)transform.position - position).normalized;
+
+        dir *= _lenghtJump;
+        
+        Jump(dir * (_lenghtJump / 3));
+        Jump(dir * _lenghtJump, rbCol);
+    }
+
     private void ReboundImpulse(Vector2 position)
     {
         Vector2 dir = ((Vector2)transform.position - position).normalized;
 
         dir *= _lenghtJump;
         
-        Invoke($"Jump({dir})", 0.5f);
+        Jump(dir * (_lenghtJump));
     }
     
     private void Jump(Vector2 dir)
@@ -96,5 +107,14 @@ public class Movement : MonoBehaviour
             _rb[i].velocity = new Vector2(_rb[i].velocity.x, 0);
             _rb[i].velocity += dir * (_jumpPower / 2);
         }
+    }
+    
+    private void Jump(Vector2 dir, Rigidbody2D rb)
+    {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(dir * _jumpPower, ForceMode2D.Impulse);
     }
 }

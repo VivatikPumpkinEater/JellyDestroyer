@@ -12,11 +12,12 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private Coin _coin = null;
 
     public System.Action DamageEvent;
+    public System.Action<EnemyBase> EnemyDie;
     
     private bool _acceptDamage = true;
     private Coroutine _resetAccept = null;
 
-    public virtual void Damage(int damageValue)
+    public virtual void Damage(int damageValue, Vector2 damagePosition)
     {
         if (_acceptDamage)
         {
@@ -48,6 +49,11 @@ public class HealthManager : MonoBehaviour
 
     private void Die()
     {
+        if (GetComponent<EnemyBase>())
+        {
+            EnemyDie?.Invoke(this.GetComponent<EnemyBase>());
+        }
+        
         Destroy(this.gameObject, 0.2f);
 
         if (_coin != null)

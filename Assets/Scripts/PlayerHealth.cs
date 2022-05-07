@@ -6,7 +6,8 @@ using UnityEngine;
 public class PlayerHealth : HealthManager
 {
     [SerializeField] private PlayerStats _playerStats = null;
-    
+
+    public System.Action<Vector2> ImpulseEvent;
     
     private void Awake()
     {
@@ -25,9 +26,14 @@ public class PlayerHealth : HealthManager
     {
         get => _playerStats.Health;
     }
-    public override void Damage(int damageValue)
+
+    public override void Damage(int damageValue, Vector2 damagePosition)
     {
-        base.Damage(damageValue);
+        base.Damage(damageValue, damagePosition);
         
+        if (_Health > 0)
+        {
+            ImpulseEvent?.Invoke(damagePosition);
+        }
     }
 }
