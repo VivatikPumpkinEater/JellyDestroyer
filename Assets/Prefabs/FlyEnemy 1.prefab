@@ -429,8 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58f0b42b4d5ef943817ab06e8cfd53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
-  _blooSplash: {fileID: 0}
+  _Health: 2
+  _DeadEffect: {fileID: 4836023580231668415, guid: 69246912af67d2e4a953595be7382128,
+    type: 3}
   _coin: {fileID: 1320463731, guid: 0b4d79615fb833940b6ba22ca97f27d0, type: 3}
 --- !u!114 &1221493542
 MonoBehaviour:

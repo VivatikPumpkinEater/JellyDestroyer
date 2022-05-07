@@ -5,16 +5,34 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField] private int _damage = 1;
     [SerializeField] private Rigidbody2D _center = null;
     [SerializeField] private List<RigidbodyInfo> _rigidbodyInfos = new List<RigidbodyInfo>();
+    
+    public static Player Instance = null;
 
+    public System.Action<Vector2> Rebound;
+    
     private void Awake()
     {
+        CheckInstance();
+        
         foreach (var info in _rigidbodyInfos)
         {
             info.Collision += Punch;
             info.Drag += Slam;
         }
+    }
+
+    private void CheckInstance()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
+        }
+
+        Instance = this;
     }
 
     private void Update()
@@ -26,9 +44,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Punch(Enemy enemy)
+    private void Punch(HealthManager sufferer)
     {
-        enemy.Damage();
+        Rebound?.Invoke(sufferer.transform.position);
+        sufferer.Damage(_damage);
     }
 
     private void Slam()

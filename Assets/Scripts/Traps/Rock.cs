@@ -27,7 +27,7 @@ public class Rock : MonoBehaviour
             {
                 try
                 {
-                    sufferer.GetComponent<Enemy>().Damage();
+                    sufferer.Damage(1);
                 }
                 catch (Exception e)
                 {

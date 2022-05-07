@@ -84,7 +84,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ac3d29695ac21d48b213f631cbaaecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trigger: {fileID: 1320463730}
+  _TimeToUse: 1
+  _Trigger: {fileID: 1320463730}
 --- !u!58 &5365662918782441597
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -112,6 +113,7 @@ GameObject:
   - component: {fileID: 168642331102856670}
   - component: {fileID: 168642331102856671}
   - component: {fileID: 168642331102856669}
+  - component: {fileID: 7437931424427118362}
   m_Layer: 8
   m_Name: Model
   m_TagString: Untagged
@@ -203,3 +205,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7437931424427118362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 168642331102856609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba3815b51c938e4a928ae64229def55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

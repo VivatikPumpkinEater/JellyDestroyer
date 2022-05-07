@@ -22,7 +22,7 @@ public class Box : InteractiveProps
 
     public void Destruction()
     {
-        Debug.Log("Destroy");
+        //Debug.Log("Destroy");
         Destroy(this.gameObject);
         
         var destroyBox = Instantiate(_DestroyVariant, transform.position, quaternion.identity);
@@ -46,5 +46,10 @@ public class Box : InteractiveProps
             coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
                 ForceMode2D.Impulse);
         }
+    }
+
+    public override void Hit()
+    {
+        base.Hit();
     }
 }

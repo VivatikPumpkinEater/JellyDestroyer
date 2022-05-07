@@ -4,70 +4,58 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class FlyEnemy : MonoBehaviour
+[RequireComponent(typeof(HealthManager))]
+public class FlyEnemy : EnemyBase
 {
-    [SerializeField] private AnimationCurve _fly = null;
-    [SerializeField] private LayerMask _enemyTarget;
-    [SerializeField] private float _speed = 5f;
+    [SerializeField] private FireBall _fireBall = null;
 
-    [SerializeField] private Player _player = null;
-    [SerializeField] private float _pause = 3f;
+    private bool _idle = true;
 
-    private bool _visibleStatus = false;
-
-    private OnVisibleObject _onVisibleObject = null;
-
-    private OnVisibleObject _visibleObject
+    protected override void Update()
     {
-        get => _onVisibleObject = _onVisibleObject ?? GetComponentInChildren<OnVisibleObject>();
-    }
-
-    private HealthManager _healthManager = null;
-
-    private HealthManager _hp
-    {
-        get => _healthManager = _healthManager ?? GetComponent<HealthManager>();
-    }
-
-    private Rigidbody2D _rigidbody2D = null;
-
-    private Rigidbody2D _rb
-    {
-        get => _rigidbody2D = _rigidbody2D ?? GetComponent<Rigidbody2D>();
-    }
-    
-    private bool _damage = false;
-
-    private void Awake()
-    {
-        _visibleObject.Visible += ChangeStatus;
-    }
-
-    private void ChangeStatus(bool visible)
-    {
-        _visibleStatus = visible;
-        
-        Debug.Log(_visibleStatus);
-    }
-    
-    public void Damage()
-    {
-        if (!_damage)
+        if (_VisibleObject)
         {
-            _damage = true;
-            _hp.Damage(1);
+            _TimerReload -= Time.deltaTime;
+            if (_TimerReload <= 0)
+            {
+                _FaceAnimator.SetBool("Attack", true);
+                _idle = false;
+
+                Vector2 dir = (_Player.transform.position - transform.position).normalized;
+
+                float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+                transform.rotation = Quaternion.Euler(0f, 0f, rot - _Angel);
+
+                _TimerToShoot -= Time.deltaTime;
+
+                if (_TimerToShoot <= 0)
+                {
+                    ResetTimer();
+                    Attack(transform.rotation = Quaternion.Euler(0f, 0f, rot - _Angel/2));
+                }
+            }
         }
     }
 
+    protected override void Attack(Quaternion q)
+    {
+        _FaceAnimator.SetBool("Attack", false);
+        _idle = true;
+        
+        var fireBall = Instantiate(_fireBall, transform.position, q);
+        
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+    }
 
     public void Fly()
     {
-        _rb.velocity = Vector2.up * _speed;
-        
-        if (_visibleStatus && Vector2.Distance(transform.position, _player.transform.position) > 3f)
+        _Rb.velocity = Vector2.up * _Speed;
+
+        if (_VisibleStatus && Vector2.Distance(transform.position, _Player.transform.position) > 3f && _idle)
         {
-            Vector2 direction = (_player.transform.position - transform.position).normalized;
-            _rb.AddForce(direction * _speed, ForceMode2D.Impulse);
+            Vector2 direction = (_Player.transform.position - transform.position).normalized;
+            _Rb.AddForce(direction * _Speed, ForceMode2D.Impulse);
         }
     }
 }

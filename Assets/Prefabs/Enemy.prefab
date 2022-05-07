@@ -1316,7 +1316,7 @@ MonoBehaviour:
   - {fileID: 70184431788468419}
   - {fileID: 70184431225143612}
   m_Bounds:
-    m_Center: {x: 0.37249422, y: 0.2537818, z: 0}
+    m_Center: {x: 0.37249458, y: 0.2537818, z: 0}
     m_Extent: {x: 1.27999, y: 1.2799898, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1359,8 +1359,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58f0b42b4d5ef943817ab06e8cfd53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 1
-  _blooSplash: {fileID: 4836023580231668415, guid: 69246912af67d2e4a953595be7382128,
+  _Health: 1
+  _DeadEffect: {fileID: 4836023580231668415, guid: 69246912af67d2e4a953595be7382128,
     type: 3}
   _coin: {fileID: 1320463731, guid: 0b4d79615fb833940b6ba22ca97f27d0, type: 3}
 --- !u!50 &3684201818071284015
@@ -1399,7 +1399,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.4278519, y: -0.37140518}
+  m_ConnectedAnchor: {x: 1.4278519, y: -0.3714049}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1419,7 +1419,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 1.5558978, y: 0.21940029}
+  m_ConnectedAnchor: {x: 1.5558982, y: 0.21940027}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1439,7 +1439,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.92555285, y: 0.387795}
+  m_ConnectedAnchor: {x: 0.92555285, y: 0.38779476}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0
@@ -1459,7 +1459,7 @@ SpringJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0.8647022, y: -0.22446907}
+  m_ConnectedAnchor: {x: 0.864702, y: -0.22446907}
   m_AutoConfigureDistance: 1
   m_Distance: 0.005
   m_DampingRatio: 0

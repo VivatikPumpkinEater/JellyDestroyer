@@ -7,39 +7,62 @@ using Random = UnityEngine.Random;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] private int _health = 1;
-    [SerializeField] private ParticleSystem _blooSplash = null;
+    [SerializeField] protected int _Health = 1;
+    [SerializeField] protected ParticleSystem _DeadEffect = null;
     [SerializeField] private Coin _coin = null;
 
-    public void Damage(int damageValue)
+    private bool _acceptDamage = true;
+    private Coroutine _resetAccept = null;
+
+    public virtual void Damage(int damageValue)
     {
-        _health -= damageValue;
-
-        Debug.Log("ChangeHp");
-
-        if (_health <= 0)
+        if (_acceptDamage)
         {
-            Die();
+            _acceptDamage = false;
+
+            _Health -= damageValue;
+
+            Debug.Log("ChangeHp");
+
+            if (_Health <= 0)
+            {
+                Die();
+            }
+            else
+            {
+                _resetAccept = StartCoroutine(ResetAcceptDamage());
+                Debug.Log("ResetAccept");
+            }
         }
+    }
+
+    protected IEnumerator ResetAcceptDamage()
+    {
+        yield return new WaitForSecondsRealtime(1f);
+
+        _acceptDamage = true;
     }
 
     private void Die()
     {
         Destroy(this.gameObject, 0.2f);
 
-        for (int i = 0; i < Random.Range(3, 10); i++)
+        if (_coin != null)
         {
-            var coin = Instantiate(_coin,
-                new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
-                    transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);
+            for (int i = 0; i < Random.Range(3, 10); i++)
+            {
+                var coin = Instantiate(_coin,
+                    new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
+                        transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);
 
-            coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
-                ForceMode2D.Impulse);
+                coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
+                    ForceMode2D.Impulse);
+            }
         }
 
-        if (_blooSplash != null)
+        if (_DeadEffect != null)
         {
-            Instantiate(_blooSplash, transform.position, quaternion.identity);
+            Instantiate(_DeadEffect, transform.position, quaternion.identity);
         }
     }
 }

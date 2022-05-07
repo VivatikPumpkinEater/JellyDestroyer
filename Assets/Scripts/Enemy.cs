@@ -28,15 +28,6 @@ public class Enemy : MonoBehaviour
         _timer = _time;
     }
 
-    public void Damage()
-    {
-        if (!_damage)
-        {
-            _damage = true;
-            _hp.Damage(1);
-        }
-    }
-
     private void Update()
     {
         _timer -= Time.deltaTime;
