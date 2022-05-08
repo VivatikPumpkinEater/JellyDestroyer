@@ -199,3 +199,5 @@ MonoBehaviour:
   _DestroyVariant: {fileID: 2059280991494377759, guid: 31df4a582ff69b044b8ca3d3596e1141,
     type: 3}
   _Coin: {fileID: 1320463731, guid: 0b4d79615fb833940b6ba22ca97f27d0, type: 3}
+  _destroyEffect: {fileID: 2473873002929016795, guid: 2786b4312c05f7b46949db51800b1bd6,
+    type: 3}

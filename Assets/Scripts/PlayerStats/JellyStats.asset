@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 112386a08d49f3e4aa9d5f9dc5b56203, type: 3}
-  m_Name: DumplingStats
+  m_Name: JellyStats
   m_EditorClassIdentifier: 
-  Name: Dumpling
-  Cost: 0
+  Name: Jelly
+  Cost: 150
   Health: 3
   Damage: 1
-  PlayerPrefab: {fileID: 2726745748412837716, guid: 2e5ae0844ec8526498047195ea5bc4e2,
+  PlayerPrefab: {fileID: 5134433472586875641, guid: 0871c51713596814fa655dca1abe90cf,
     type: 3}
-  PlayerDecoration: {fileID: 7544383555404834625, guid: 579324bb052288e45b8f1291d43b3fc2,
+  PlayerDecoration: {fileID: 5134433472586875641, guid: 84417e6d6f749914eba15834ec1c6536,
     type: 3}
-  Acquired: 1
+  Acquired: 0

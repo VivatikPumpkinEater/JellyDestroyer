@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class Box : InteractiveProps
 {
+    [SerializeField] private ParticleSystem _destroyEffect = null;
     protected override void OnCollisionEnter2D(Collision2D col)
     {
         base.OnCollisionEnter2D(col);
@@ -24,6 +25,12 @@ public class Box : InteractiveProps
     {
         //Debug.Log("Destroy");
         Destroy(this.gameObject);
+
+        if (_destroyEffect != null)
+        {
+            var destroyEffect = Instantiate(_destroyEffect, transform.position, Quaternion.identity);
+            destroyEffect.Play();
+        }
         
         var destroyBox = Instantiate(_DestroyVariant, transform.position, quaternion.identity);
         var rbs = destroyBox.GetComponentsInChildren<Rigidbody2D>();
