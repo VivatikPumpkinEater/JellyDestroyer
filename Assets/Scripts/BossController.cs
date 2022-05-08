@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class BossController : EnemyBase
 {
+    [SerializeField] private FireBall _fireBall = null;
     
+    protected override void Attack()
+    {
+        
+    }
 }

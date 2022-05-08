@@ -40,6 +40,8 @@ public class RoomGeneratorV4 : MonoBehaviour
     [Header("Props settings")] [SerializeField]
     private List<InteractiveProps> _props = new List<InteractiveProps>();
 
+    [Header("End level")] [SerializeField] private GameObject _exitLevel = null;
+
     /*#region Testing
 
     [SerializeField] private Tile _centerTest = null;
