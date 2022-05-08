@@ -17,6 +17,13 @@ public class HealthManager : MonoBehaviour
     private bool _acceptDamage = true;
     private Coroutine _resetAccept = null;
 
+    private RipplePostProcessor _ripplePostProcessor = null;
+
+    protected RipplePostProcessor _RippleEffect
+    {
+        get => Camera.main.GetComponent<RipplePostProcessor>();
+    }
+
     public virtual void Damage(int damageValue, Vector2 damagePosition)
     {
         if (_acceptDamage)
@@ -47,11 +54,16 @@ public class HealthManager : MonoBehaviour
         _acceptDamage = true;
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         if (GetComponent<EnemyBase>())
         {
             EnemyDie?.Invoke(this.GetComponent<EnemyBase>());
+        }
+
+        if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= 4)
+        {
+            _RippleEffect.RippleEffect(transform.position);
         }
         
         Destroy(this.gameObject, 0.2f);

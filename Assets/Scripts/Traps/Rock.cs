@@ -23,7 +23,7 @@ public class Rock : MonoBehaviour
                            col.collider.GetComponentInParent<HealthManager>();
             Debug.Log(sufferer);
 
-            if (sufferer)
+            if (sufferer && !sufferer.GetComponent<Player>())
             {
                 try
                 {

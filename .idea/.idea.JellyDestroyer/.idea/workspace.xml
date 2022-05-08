@@ -22,6 +22,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/FireBall.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactive/InteractiveProps.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStats/PlayerSaveData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/RipplePostProcessor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Traps/Rock.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/MainMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/WobblyText.cs" root0="FORCE_HIGHLIGHTING" />
@@ -95,7 +96,7 @@
       <workItem from="1651680373845" duration="8656000" />
       <workItem from="1651845937366" duration="27226000" />
       <workItem from="1651950865283" duration="2007000" />
-      <workItem from="1651995064255" duration="8716000" />
+      <workItem from="1651995064255" duration="11415000" />
     </task>
     <servers />
   </component>

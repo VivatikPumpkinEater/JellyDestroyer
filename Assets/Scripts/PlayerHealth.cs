@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : HealthManager
 {
@@ -31,9 +32,16 @@ public class PlayerHealth : HealthManager
     {
         base.Damage(damageValue, damagePosition);
         
+        Camera.main.GetComponentInParent<Animator>().SetTrigger("Shake");
+        
         if (_Health > 0)
         {
             ImpulseEvent?.Invoke(damagePosition);
         }
+    }
+
+    protected override void Die()
+    {
+        SceneManager.LoadScene(0);
     }
 }

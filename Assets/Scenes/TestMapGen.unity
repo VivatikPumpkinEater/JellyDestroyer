@@ -553,11 +553,12 @@ MonoBehaviour:
   _groundTile: {fileID: 11400000, guid: 51e8998098a2c40469895080fcedaffe, type: 2}
   _bgTile: {fileID: 0}
   _border: {fileID: 11400000, guid: 10b220373ed434a4699d1cd6e79364db, type: 2}
-  _roomCount: 2
-  _minRoomSize: 5
+  _roomCount: 3
+  _minRoomSize: 7
   _maxRoomSize: 8
   _offset: 3
   _widthTunnel: 5
+  _props: []
 --- !u!66 &1570149540
 CompositeCollider2D:
   m_ObjectHideFlags: 0
