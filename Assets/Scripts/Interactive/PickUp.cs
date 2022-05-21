@@ -13,7 +13,7 @@ public class PickUp : MonoBehaviour
     
     private Coroutine _timer = null;
 
-    private void Start()
+    protected virtual void Start()
     {
         if (_visibleObject != null)
         {
@@ -61,7 +61,7 @@ public class PickUp : MonoBehaviour
         }
     }
 
-    protected void GoToUI()
+    protected virtual void GoToUI()
     {
         gameObject.layer = LayerMask.NameToLayer("NoInteractive");
 

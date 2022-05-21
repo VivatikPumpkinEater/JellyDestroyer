@@ -7,6 +7,14 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance = null;
 
+    [SerializeField] private CoinsCounter _coinsCounter = null;
+    [SerializeField] private Animator _transitionAnimator = null;
+
+    public CoinsCounter CoinsCounter
+    {
+        get => _coinsCounter;
+    }
+
     private void Awake()
     {
         CheckInstance();
@@ -21,5 +29,10 @@ public class UIManager : MonoBehaviour
         }
 
         Instance = this;
+    }
+
+    public void StartTransition()
+    {
+        _transitionAnimator.SetTrigger("Start");
     }
 }

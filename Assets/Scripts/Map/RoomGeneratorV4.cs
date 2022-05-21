@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.Tilemaps;
@@ -62,6 +63,7 @@ public class RoomGeneratorV4 : MonoBehaviour
     }
 
     public System.Action<List<EnemyBase>> Enemies;
+    public System.Action<Vector2> PortalPosition;
 
     private void Awake()
     {
@@ -74,6 +76,11 @@ public class RoomGeneratorV4 : MonoBehaviour
         Instance = this;
 
         Initialize();
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.WinGame += SetPortal;
     }
 
     private void Initialize()
@@ -283,6 +290,21 @@ public class RoomGeneratorV4 : MonoBehaviour
         }
 
         Debug.Log("===END tunnel v3===");
+    }
+
+    private void SetPortal()
+    {
+        int exitRoom = Random.Range(0, _roomCount);
+        
+        var portal = Instantiate(_exitLevel);
+        
+        portal.transform.position =
+            (Vector3Int)new Vector2Int(
+                Random.Range(_rooms[exitRoom].x - (_roomsInfo[exitRoom].x / 2), _rooms[exitRoom].x + (_roomsInfo[exitRoom].x / 2)),
+                Random.Range(_rooms[exitRoom].y - (_roomsInfo[exitRoom].y / 2), _rooms[exitRoom].y + (_roomsInfo[exitRoom].y / 2))
+            );
+        
+        PortalPosition?.Invoke(portal.transform.position);
     }
 
     public void MapClear()

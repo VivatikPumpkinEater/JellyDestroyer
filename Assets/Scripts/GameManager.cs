@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     private Camera _camera;
     private List<EnemyBase> _enemies = new List<EnemyBase>();
 
+    public System.Action WinGame;
+    
     private void Awake()
     {
         if (Instance != null)
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         if (_enemies.Count <= 0)
         {
             Debug.Log("Win");
+            WinGame?.Invoke();
         }
     }
 

@@ -135,9 +135,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1636320300153760465}
   - component: {fileID: 1636320300153760479}
-  - component: {fileID: 835205687}
   - component: {fileID: 835205688}
   - component: {fileID: 3357412721263605462}
+  - component: {fileID: 681263774}
   m_Layer: 0
   m_Name: Saucepan
   m_TagString: Untagged
@@ -182,22 +182,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &835205687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1636320300153760478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ffd58d94a49e6c4a90e928b7b7429ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _jumpPower: 10
-  _time: 3
-  _rb:
-  - {fileID: 1636320300153760479}
 --- !u!114 &835205688
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,6 +223,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.8403606, y: 0.6246662}
   m_EdgeRadius: 0
+--- !u!114 &681263774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636320300153760478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 015a9f42cd7542e4bac384afed0a8dbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Speed: 3
+  _ReloadTimeAVG: 3
+  _ToShootTime: 3
+  _FaceAnimator: {fileID: 0}
+  _EnemyTargetLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  _Angel: 0
+  _fireBall: {fileID: 4350095424600701929, guid: c888b0023e6d701449534595b365e15a,
+    type: 3}
 --- !u!1 &1636320300796554937
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,6 +259,7 @@ GameObject:
   - component: {fileID: 1595539028}
   - component: {fileID: 1595539029}
   - component: {fileID: 1595539031}
+  - component: {fileID: 1361388276}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -428,3 +435,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58600235, y: 0.35120773}
   m_EdgeRadius: 0
+--- !u!114 &1361388276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636320300796554937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba3815b51c938e4a928ae64229def55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
