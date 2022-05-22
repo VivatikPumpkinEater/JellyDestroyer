@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Movement : MonoBehaviour
 {
@@ -10,6 +11,13 @@ public class Movement : MonoBehaviour
 
     [SerializeField] private Vector2 _lenghtJump;
     [SerializeField] private float _jumpPower = 5f;
+
+    private AudioSource _audioSource = null;
+
+    private AudioSource _audio
+    {
+        get => _audioSource = _audioSource ?? GetComponent<AudioSource>();
+    }
 
     private Vector2 _screenSize;
 
@@ -39,6 +47,10 @@ public class Movement : MonoBehaviour
                 {
                     Jump(Vector2.up * _lenghtJump.y + Vector2.right * _lenghtJump.x);
                 }
+
+                _audio.clip = AudioManager.Instance.GetSound("Move0");
+
+                _audio.Play();
 
                 //_startTouch = t.position;
             }
@@ -72,7 +84,7 @@ public class Movement : MonoBehaviour
         Vector2 dir = ((Vector2)transform.position - position).normalized;
 
         dir *= _lenghtJump;
-        
+
         Jump(dir * (_lenghtJump / 3));
         Jump(dir * _lenghtJump, rbCol);
     }
@@ -82,10 +94,10 @@ public class Movement : MonoBehaviour
         Vector2 dir = ((Vector2)transform.position - position).normalized;
 
         dir *= _lenghtJump;
-        
+
         Jump(dir * (_lenghtJump));
     }
-    
+
     private void Jump(Vector2 dir)
     {
         _face.velocity = Vector2.zero;
@@ -108,7 +120,7 @@ public class Movement : MonoBehaviour
             _rb[i].velocity += dir * (_jumpPower / 2);
         }
     }
-    
+
     private void Jump(Vector2 dir, Rigidbody2D rb)
     {
         rb.velocity = Vector2.zero;

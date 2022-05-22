@@ -8,6 +8,13 @@ public class PickUp : MonoBehaviour
     [SerializeField] protected float _TimeToUse = 1f;
     [SerializeField] protected CircleCollider2D _Trigger = null;
 
+    private PoolObject _poolObject = null;
+
+    private PoolObject _poolObj
+    {
+        get => _poolObject = _poolObject ?? GetComponent<PoolObject>();
+    }
+    
     private OnVisibleObject _visibleObject = null;
     private bool _visible = false;
     
@@ -63,8 +70,8 @@ public class PickUp : MonoBehaviour
 
     protected virtual void GoToUI()
     {
-        gameObject.layer = LayerMask.NameToLayer("NoInteractive");
+        //gameObject.layer = LayerMask.NameToLayer("NoInteractive");
 
-        transform.DOMove(GameManager.Instance.PropsToUI(), 2f).OnComplete(() => Destroy(gameObject));
+        transform.DOMove(GameManager.Instance.PropsToUI() + Vector2.up * 10, 4f).OnComplete(() => _poolObj.ReturnToPool());
     }
 }

@@ -16,6 +16,13 @@ public class HealthManager : MonoBehaviour
     
     private bool _acceptDamage = true;
     private Coroutine _resetAccept = null;
+    
+    private AudioSource _audioSource = null;
+
+    private AudioSource _audio
+    {
+        get => _audioSource = _audioSource ?? GetComponent<AudioSource>();
+    }
 
     private RipplePostProcessor _ripplePostProcessor = null;
 
@@ -57,6 +64,9 @@ public class HealthManager : MonoBehaviour
 
     protected virtual void Die()
     {
+        _audio.clip = AudioManager.Instance.GetSound("Damage");
+        _audio.Play();
+        
         if (GetComponent<EnemyBase>())
         {
             EnemyDie?.Invoke(this.GetComponent<EnemyBase>());
@@ -73,9 +83,12 @@ public class HealthManager : MonoBehaviour
         {
             for (int i = 0; i < Random.Range(3, 10); i++)
             {
-                var coin = Instantiate(_coin,
+                /*var coin = Instantiate(_coin,
                     new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
-                        transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);
+                        transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);*/
+
+                var coin = Pool.Instance.GetFreeElement(new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
+                    transform.position.y + Random.Range(0f, 0.5f), 0));
 
                 coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
                     ForceMode2D.Impulse);

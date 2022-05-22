@@ -9,6 +9,13 @@ public class FlyEnemy : EnemyBase
 {
     [SerializeField] private FireBall _fireBall = null;
 
+    private AudioSource _audioSource = null;
+
+    private AudioSource _audio
+    {
+        get => _audioSource = _audioSource ?? GetComponent<AudioSource>();
+    }
+    
     private bool _idle = true;
 
     protected override void Update()
@@ -40,6 +47,9 @@ public class FlyEnemy : EnemyBase
 
     protected override void Attack(Quaternion q)
     {
+        _audio.clip = AudioManager.Instance.GetSound("FireBallShoot");
+        _audio.Play();
+        
         _FaceAnimator.SetBool("Attack", false);
         _idle = true;
         
