@@ -32,6 +32,13 @@ public class TNT : InteractiveProps
                 {
                     interactiveProps.Hit();
                 }
+
+                var enemy = rb.GetComponent<EnemyBase>();
+
+                if (enemy)
+                {
+                    enemy.GetComponent<HealthManager>().Damage(1, transform.position);
+                }
             }
         }
     }

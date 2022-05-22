@@ -37,6 +37,7 @@ public class HealthManager : MonoBehaviour
             if (_Health <= 0)
             {
                 Die();
+                DamageEvent?.Invoke();
             }
             else
             {

@@ -27,7 +27,7 @@ public class RoomGeneratorV4 : MonoBehaviour
     [SerializeField] private Tilemap _bgMap = null;
 
     [SerializeField] private RuleTile _groundTile = null;
-    [SerializeField] private RuleTile _bgTile = null;
+    [SerializeField] private TileBase _bgTile = null;
     [SerializeField] private TileBase _border = null;
 
     [Header("Room settings")] [SerializeField]
@@ -240,6 +240,7 @@ public class RoomGeneratorV4 : MonoBehaviour
             {
                 for (int j = 0; j < _widthTunnel; j++)
                 {
+
                     _groundMap.SetTile(
                         new Vector3Int(tilePos.x, tilePos.y + j, 0),
                         null);
@@ -249,6 +250,12 @@ public class RoomGeneratorV4 : MonoBehaviour
                         _bgMap.SetTile(
                             new Vector3Int(tilePos.x, tilePos.y + j, 0),
                             _bgTile);
+                    }
+                    
+                    if (Random.Range(0, 11) == 5)
+                    {
+                        var prop = Instantiate(_props[Random.Range(0, _props.Count)]);
+                        prop.transform.position = new Vector3Int(tilePos.x, tilePos.y + j, 0);
                     }
                 }
 
@@ -275,6 +282,12 @@ public class RoomGeneratorV4 : MonoBehaviour
                         _bgMap.SetTile(
                             new Vector3Int(tilePos.x + j, tilePos.y, 0),
                             _bgTile);
+                    }
+                    
+                    if (Random.Range(0, 11) == 5)
+                    {
+                        var prop = Instantiate(_props[Random.Range(0, _props.Count)]);
+                        prop.transform.position = new Vector3Int(tilePos.x + j, tilePos.y, 0);
                     }
                 }
 

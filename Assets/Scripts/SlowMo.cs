@@ -54,6 +54,21 @@ public class SlowMo : MonoBehaviour
             _status = SlowMoStatus.On;
         }
     }
+    
+    public void OnSlowMotion(float timeScale)
+    {
+        if(_status != SlowMoStatus.On)
+        {
+            float slowMoValue = 1f / timeScale;
+            
+            Time.timeScale = slowMoValue;
+            Time.fixedDeltaTime *= slowMoValue;
+
+            _slowMotionEffect.SetActive(true);
+
+            _status = SlowMoStatus.On;
+        }
+    }
 
     public void DisableSlowMotion()
     {
@@ -61,6 +76,21 @@ public class SlowMo : MonoBehaviour
         {
             Time.timeScale = 1f;
             Time.fixedDeltaTime /= _slowMoValue;
+
+            _slowMotionEffect.SetActive(false);
+
+            _status = SlowMoStatus.Off;
+        }
+    }
+    
+    public void DisableSlowMotion(float timeScale)
+    {
+        if(_status != SlowMoStatus.Off)
+        {
+            float slowMoValue = 1f / timeScale;
+            
+            Time.timeScale = 1f;
+            Time.fixedDeltaTime /= slowMoValue;
 
             _slowMotionEffect.SetActive(false);
 
@@ -79,6 +109,8 @@ public class SlowMo : MonoBehaviour
                 DisableSlowMotion();
                 break;
         }
+        
+        UIManager.Instance.Pause(pauseStatus);
     }
 }
 

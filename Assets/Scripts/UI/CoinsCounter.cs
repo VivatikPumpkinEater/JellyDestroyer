@@ -12,6 +12,8 @@ public class CoinsCounter : MonoBehaviour
     
     private void Awake()
     {
+        Debug.Log(PlayerPrefs.HasKey("Coin"));
+        
         if (PlayerPrefs.HasKey("Coin"))
         {
             _coins = PlayerPrefs.GetInt("Coin");
@@ -28,6 +30,8 @@ public class CoinsCounter : MonoBehaviour
     private void UpdateCoinsInfo()
     {
         _coinsTxt.text = _coins.ToString();
+        
+        SaveCoins();
     }
 
     private void OnDestroy()
@@ -37,6 +41,13 @@ public class CoinsCounter : MonoBehaviour
 
     private void SaveCoins()
     {
-        PlayerPrefs.SetInt("Key", _coins);
+        PlayerPrefs.SetInt("Coin", _coins);
+    }
+
+    private void MinusMoney(int cost)
+    {
+        _coins -= cost;
+        
+        UpdateCoinsInfo();
     }
 }

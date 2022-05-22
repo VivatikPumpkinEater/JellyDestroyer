@@ -8,14 +8,21 @@ public class PlayerHealth : HealthManager
 {
     [SerializeField] private PlayerStats _playerStats = null;
 
-    public System.Action<Vector2> ImpulseEvent;
+    private static int _hpPlayer = 0;
     
+    public System.Action<Vector2> ImpulseEvent;
+
+    private static bool _start = false;
     private void Awake()
     {
-        if (_playerStats != null)
+        if (_playerStats != null && !_start)
         {
-            _Health = _playerStats.Health;
+            _hpPlayer = _playerStats.Health;
+
+            _start = true;
         }
+
+        _Health = _hpPlayer;
     }
 
     public int Health
@@ -31,6 +38,7 @@ public class PlayerHealth : HealthManager
     public override void Damage(int damageValue, Vector2 damagePosition)
     {
         base.Damage(damageValue, damagePosition);
+        _hpPlayer = _Health;
         
         Camera.main.GetComponentInParent<Animator>().SetTrigger("Shake");
         
@@ -42,6 +50,9 @@ public class PlayerHealth : HealthManager
 
     protected override void Die()
     {
-        SceneManager.LoadScene(0);
+        UIManager.Instance.GameOver();
+        
+        UIManager.Instance.StartGame = false;
+        _start = false;
     }
 }

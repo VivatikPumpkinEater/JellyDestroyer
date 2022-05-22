@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4350095424600701931}
   - component: {fileID: 4350095424600701928}
   - component: {fileID: 4350095424600701929}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: FireBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _speed: 3
-  _hitEffect: {fileID: 691036237511155703, guid: b090d509111931f4db5dd8aaae091801,
+  _hitEffect: {fileID: 2473873002929016795, guid: d129edf4e1785d1478baf5302adc5239,
     type: 3}
   _trigger: {fileID: 4350095424600701931}
 --- !u!1 &4350095425330773293
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 4350095425330773290}
   - component: {fileID: 4350095425330773291}
   - component: {fileID: 4350095425330773288}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

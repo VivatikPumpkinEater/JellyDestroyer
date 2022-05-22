@@ -9,13 +9,13 @@ public class FireBall : MonoBehaviour
     [SerializeField] private int _damage = 1;
     [SerializeField] private float _speed = 3f;
 
-    [SerializeField] private GameObject _hitEffect = null;
+    [SerializeField] private ParticleSystem _hitEffect = null;
 
     [SerializeField] private CircleCollider2D _trigger = null;
 
     private void Start()
     {
-        Invoke("SetTrigger", 0.2f);
+        Invoke("SetTrigger", 0.1f);
     }
 
     private void SetTrigger()
@@ -33,13 +33,21 @@ public class FireBall : MonoBehaviour
         var sufferer = col.GetComponent<HealthManager>() ??
                        col.GetComponentInParent<HealthManager>();
 
+        var props = col.GetComponent<InteractiveProps>();
+
         if (sufferer)
         {
             sufferer.Damage(_damage, this.transform.position);
         }
+
+        if (props)
+        {
+            props.Hit();
+        }
         
         Destroy(gameObject);
 
-        Instantiate(_hitEffect, transform.position, Quaternion.identity);
+        var boom = Instantiate(_hitEffect, transform.position, Quaternion.identity);
+        boom.Play();
     }
 }

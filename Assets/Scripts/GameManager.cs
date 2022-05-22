@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance = null;
     
-    private Camera _camera;
+    [SerializeField]private Camera _camera;
     private List<EnemyBase> _enemies = new List<EnemyBase>();
 
     public System.Action WinGame;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         
-        _camera = Camera.main;
+        //_camera = Camera.main;
     }
 
     private void Start()

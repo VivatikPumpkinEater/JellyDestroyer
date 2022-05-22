@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ChangeableUI : MonoBehaviour
 {
@@ -15,8 +16,14 @@ public class ChangeableUI : MonoBehaviour
     private void Start()
     {
         Player.Instance.PlayerHealth.DamageEvent += MinusHealth;
-        
+
         FillHealth();
+        for (int i = 0; i < Player.Instance.PlayerHealth.MaxHealth - Player.Instance.PlayerHealth.Health; i++)
+        {
+            Debug.Log("MinusNew");
+
+            MinusHealth();
+        }
     }
 
     private void FillHealth()
