@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,12 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
     
     [SerializeField]private Camera _camera;
+    [SerializeField] private CinemachineVirtualCamera _vc = null;
+
+    [SerializeField] private RoomGeneratorV4 _mapGen = null;
+    
+    [SerializeField] private PlayerSaveData _playerSaveData = null;
+    
     private List<EnemyBase> _enemies = new List<EnemyBase>();
 
     public System.Action WinGame;
@@ -22,7 +29,19 @@ public class GameManager : MonoBehaviour
 
         Instance = this;
         
+        SpawnPlayer();
+        
         //_camera = Camera.main;
+    }
+
+    private void SpawnPlayer()
+    {
+        var player = Instantiate(_playerSaveData.ActiveCharacter.PlayerPrefab, transform);
+        player.transform.position = transform.position;
+
+        _mapGen.Player = player.gameObject;
+        
+        _vc.Follow = player.GetComponent<Player>().Center;
     }
 
     private void Start()

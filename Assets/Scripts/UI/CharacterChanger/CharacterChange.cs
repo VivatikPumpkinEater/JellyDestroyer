@@ -11,6 +11,8 @@ public class CharacterChange : MonoBehaviour
 {
     [SerializeField] private PlayerSaveData _playerSave = null;
 
+    [SerializeField] private CoinsCounter _coinsCounter = null;
+
     [SerializeField] private List<PlayerStats> _charcters = new List<PlayerStats>();
 
     [SerializeField] private Button _left = null;
@@ -28,8 +30,15 @@ public class CharacterChange : MonoBehaviour
     private int _actualIndex = 0;
     private bool _accept = true;
 
+    private int _money = 0;
+
     private void Awake()
     {
+        if (PlayerPrefs.HasKey("Coin"))
+        {
+            _money = PlayerPrefs.GetInt("Coin");
+        }
+        
         _left.onClick.AddListener(PreviousCharacter);
         _right.onClick.AddListener(NextCharacter);
         _buy.onClick.AddListener(BuyCharacter);
@@ -82,14 +91,16 @@ public class CharacterChange : MonoBehaviour
 
     private void BuyCharacter()
     {
-        if(_playerSave.Money - _charcters[_actualIndex].Cost >= 0)
+        if(_money - _charcters[_actualIndex].Cost >= 0)
         {
-            _playerSave.Money -= _charcters[_actualIndex].Cost;
+            _money -= _charcters[_actualIndex].Cost;
             
             _charcters[_actualIndex].Acquired = true;
-            _playerSave.AcquiredSkinsList.Add(_charcters[_actualIndex]);
+            
+            //_playerSave.AcquiredSkinsList.Add(_charcters[_actualIndex]);
 
             UpdateName();
+            _coinsCounter.UpdateCoinsInfo(_money);
         }
     }
 

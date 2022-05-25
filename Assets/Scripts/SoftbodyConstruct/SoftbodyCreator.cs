@@ -13,6 +13,7 @@ public class SoftbodyCreator : MonoBehaviour
     [SerializeField] private float _mass = 1f, _gravitScale = 1f, _freq = 5, _freqCenter = 3, _dampingRation = 0.05f;
 
     private Dictionary<Rigidbody2D, SpringJoint2D[]> _bones = new Dictionary<Rigidbody2D, SpringJoint2D[]>();
+    private List<SpringJoint2D> _centerSprings = new List<SpringJoint2D>();
 
     /*private void Awake()
     {
@@ -25,6 +26,14 @@ public class SoftbodyCreator : MonoBehaviour
     {
         SpringsFormation();
         SpringsCreate();
+        CenterSprings();
+    }
+
+    [ContextMenu("Update Springs")]
+    private void UpdateSprings()
+    {
+        SpringsCreate();
+        UpdateCenterSprings();
     }
     
     private void SpringsFormation()
@@ -78,6 +87,31 @@ public class SoftbodyCreator : MonoBehaviour
             }
 
             _bones[_rbs[i]][2].connectedBody = _center;
+        }
+    }
+
+    private void CenterSprings()
+    {
+        int springsCount = _rbs.Count / 4;
+        
+        for (int i = 0; i < springsCount; i++)
+        {
+            var spring = _center.gameObject.AddComponent<SpringJoint2D>();
+            
+            _centerSprings.Add(spring);
+        }
+
+        UpdateCenterSprings();
+    }
+
+    private void UpdateCenterSprings()
+    {
+        int springsCount = _rbs.Count / 4;
+        
+        for (int i = 0; i < _centerSprings.Count; i++)
+        {
+            _centerSprings[i].connectedBody = _rbs[i + springsCount];
+            _centerSprings[i] = SpringSetting(_centerSprings[i], _freqCenter, _dampingRation);
         }
     }
 

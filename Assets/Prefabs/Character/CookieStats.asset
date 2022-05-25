@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112386a08d49f3e4aa9d5f9dc5b56203, type: 3}
+  m_Name: CookieStats
+  m_EditorClassIdentifier: 
+  Name: Mr. Cookie
+  Cost: 15000
+  Health: 3
+  Damage: 1
+  PlayerPrefab: {fileID: 6352469601617368301, guid: 3c18dec09f9724a4eb12e2024af24f16,
+    type: 3}
+  PlayerDecoration: {fileID: 1788628555874592421, guid: 8449282caa627a844be804017458888b,
+    type: 3}
+  Acquired: 0

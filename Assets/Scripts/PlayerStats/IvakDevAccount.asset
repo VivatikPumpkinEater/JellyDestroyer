@@ -12,7 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544ecab5968860248b48798d44b4ed2f, type: 3}
   m_Name: IvakDevAccount
   m_EditorClassIdentifier: 
-  ActiveCharacter: {fileID: 11400000, guid: 2bbd1375b2e6aea4ca2ec54e5c207bb9, type: 2}
-  AcquiredSkinsList:
-  - {fileID: 11400000, guid: 7562e94aabb599e4782cc03e6f140f1c, type: 2}
-  Money: 0
+  ActiveCharacter: {fileID: 11400000, guid: 7562e94aabb599e4782cc03e6f140f1c, type: 2}

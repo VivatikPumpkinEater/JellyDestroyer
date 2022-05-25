@@ -13,6 +13,12 @@ public class RoomGeneratorV4 : MonoBehaviour
 
     [Header("Spawn")] [SerializeField] private GameObject _player = null;
 
+    public GameObject Player
+    {
+        get => _player;
+        set => _player = value;
+    }
+
     [SerializeField] private List<EnemyBase> _enemy = new List<EnemyBase>();
     [SerializeField] private int _enemyInOneRoom = 4;
 
@@ -242,20 +248,20 @@ public class RoomGeneratorV4 : MonoBehaviour
                 {
 
                     _groundMap.SetTile(
-                        new Vector3Int(tilePos.x, tilePos.y + j, 0),
+                        new Vector3Int(tilePos.x, tilePos.y + j - (int)(_widthTunnel / 2), 0),
                         null);
 
                     if (_bgTile != null)
                     {
                         _bgMap.SetTile(
-                            new Vector3Int(tilePos.x, tilePos.y + j, 0),
+                            new Vector3Int(tilePos.x, tilePos.y + j - (int)(_widthTunnel / 2), 0),
                             _bgTile);
                     }
                     
                     if (Random.Range(0, 11) == 5)
                     {
                         var prop = Instantiate(_props[Random.Range(0, _props.Count)]);
-                        prop.transform.position = new Vector3Int(tilePos.x, tilePos.y + j, 0);
+                        prop.transform.position = new Vector3Int(tilePos.x, tilePos.y + j - (int)(_widthTunnel / 2), 0);
                     }
                 }
 
@@ -274,20 +280,20 @@ public class RoomGeneratorV4 : MonoBehaviour
                 for (int j = 0; j < _widthTunnel; j++)
                 {
                     _groundMap.SetTile(
-                        new Vector3Int(tilePos.x + j, tilePos.y, 0),
+                        new Vector3Int(tilePos.x + j - (int)(_widthTunnel / 2), tilePos.y, 0),
                         null);
 
                     if (_bgTile != null)
                     {
                         _bgMap.SetTile(
-                            new Vector3Int(tilePos.x + j, tilePos.y, 0),
+                            new Vector3Int(tilePos.x + j - (int)(_widthTunnel / 2), tilePos.y, 0),
                             _bgTile);
                     }
                     
                     if (Random.Range(0, 11) == 5)
                     {
                         var prop = Instantiate(_props[Random.Range(0, _props.Count)]);
-                        prop.transform.position = new Vector3Int(tilePos.x + j, tilePos.y, 0);
+                        prop.transform.position = new Vector3Int(tilePos.x + j - (int)(_widthTunnel / 2), tilePos.y, 0);
                     }
                 }
 

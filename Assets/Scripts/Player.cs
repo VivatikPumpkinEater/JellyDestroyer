@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField] private Rigidbody2D _center = null;
     [SerializeField] private List<RigidbodyInfo> _rigidbodyInfos = new List<RigidbodyInfo>();
 
+    public Transform Center
+    {
+        get => _center.transform;
+    }
+    
     public static Player Instance = null;
 
     public System.Action<Vector2, Rigidbody2D> Rebound;

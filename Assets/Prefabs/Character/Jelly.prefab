@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 4194224517995902797}
   - component: {fileID: 4072647288839455330}
   m_Layer: 10
-  m_Name: Player
+  m_Name: Jelly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

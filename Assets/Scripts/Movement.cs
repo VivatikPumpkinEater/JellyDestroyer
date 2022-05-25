@@ -48,9 +48,12 @@ public class Movement : MonoBehaviour
                     Jump(Vector2.up * _lenghtJump.y + Vector2.right * _lenghtJump.x);
                 }
 
-                _audio.clip = AudioManager.Instance.GetSound("Move0");
+                if (AudioManager.Instance != null)
+                {
+                    _audio.clip = AudioManager.Instance.GetSound("Move0");
 
-                _audio.Play();
+                    _audio.Play();
+                }
 
                 //_startTouch = t.position;
             }

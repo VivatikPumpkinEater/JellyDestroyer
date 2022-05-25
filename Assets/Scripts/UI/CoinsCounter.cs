@@ -34,6 +34,13 @@ public class CoinsCounter : MonoBehaviour
         SaveCoins();
     }
 
+    public void UpdateCoinsInfo(int money)
+    {
+        _coins = money;
+        
+        UpdateCoinsInfo();
+    }
+
     private void OnDestroy()
     {
         SaveCoins();

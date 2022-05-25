@@ -562,8 +562,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213502037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
-  m_LocalScale: {x: 5, y: 1, z: 1}
+  m_LocalPosition: {x: 110, y: -4, z: 0}
+  m_LocalScale: {x: 50, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -732,9 +732,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSave: {fileID: 11400000, guid: aa3ccdee2f5bd9d42b7c2b3a8cc35272, type: 2}
+  _coinsCounter: {fileID: 1115109917}
   _charcters:
   - {fileID: 11400000, guid: 7562e94aabb599e4782cc03e6f140f1c, type: 2}
   - {fileID: 11400000, guid: 2bbd1375b2e6aea4ca2ec54e5c207bb9, type: 2}
+  - {fileID: 11400000, guid: 94b66abf71cfe9744bf2ef0104cc515d, type: 2}
+  - {fileID: 11400000, guid: 5799524bf57f85d4e854794567cd424a, type: 2}
   _left: {fileID: 1117053766}
   _right: {fileID: 1206210480}
   _buy: {fileID: 176714123}
@@ -786,8 +789,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 75.00001}
-  m_SizeDelta: {x: -100, y: -150}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -100, y: -299.99997}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &772217427
 GameObject:

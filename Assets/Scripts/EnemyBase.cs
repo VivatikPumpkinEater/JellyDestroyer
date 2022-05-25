@@ -77,7 +77,7 @@ public class EnemyBase : MonoBehaviour
                 
                 _TimerToShoot -= Time.deltaTime;
 
-                if (_TimerToShoot <= 0)
+                if (_TimerToShoot <= 0 && Vector2.Distance(_Player.transform.position, transform.position) < 3f)
                 {
                     ResetTimer();
                     Attack();

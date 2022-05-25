@@ -7,13 +7,4 @@ using UnityEngine;
 public class PlayerSaveData : ScriptableObject
 {
     [field: SerializeField] public PlayerStats ActiveCharacter = null;
-    [field: SerializeField] public List<PlayerStats> AcquiredSkinsList = new List<PlayerStats>();
-    [field: SerializeField] public int Money = 0;
-}
-
-[Serializable]
-public struct AcquiredSkins
-{
-    public string Name;
-    public PlayerStats PlayerStats;
 }
