@@ -5,16 +5,17 @@ using UnityEngine;
 
 public class RigidbodyInfo : MonoBehaviour
 {
-    public System.Action<Enemy> Collision;
+    public System.Action<HealthManager, Rigidbody2D> Collision;
     public System.Action Drag;
     
     private void OnCollisionEnter2D(Collision2D col)
     {
-        var enemy = col.gameObject.GetComponentInParent<Enemy>();
+        var sufferer = col.collider.GetComponent<HealthManager>() ??
+                       col.collider.GetComponentInParent<HealthManager>();
 
-        if (enemy)
+        if (sufferer && !sufferer.GetComponent<Player>())
         {
-            Collision?.Invoke(enemy);
+            Collision?.Invoke(sufferer, this.gameObject.GetComponent<Rigidbody2D>());
         }
         else
         {

@@ -7,39 +7,97 @@ using Random = UnityEngine.Random;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] private int _health = 1;
-    [SerializeField] private ParticleSystem _blooSplash = null;
+    [SerializeField] protected int _Health = 1;
+    [SerializeField] protected ParticleSystem _DeadEffect = null;
     [SerializeField] private Coin _coin = null;
 
-    public void Damage(int damageValue)
+    public System.Action DamageEvent;
+    public System.Action<EnemyBase> EnemyDie;
+    
+    private bool _acceptDamage = true;
+    private Coroutine _resetAccept = null;
+    
+    private AudioSource _audioSource = null;
+
+    private AudioSource _audio
     {
-        _health -= damageValue;
+        get => _audioSource = _audioSource ?? GetComponent<AudioSource>();
+    }
 
-        Debug.Log("ChangeHp");
+    private RipplePostProcessor _ripplePostProcessor = null;
 
-        if (_health <= 0)
+    protected RipplePostProcessor _RippleEffect
+    {
+        get => Camera.main.GetComponent<RipplePostProcessor>();
+    }
+
+    public virtual void Damage(int damageValue, Vector2 damagePosition)
+    {
+        if (_acceptDamage)
         {
-            Die();
+            _acceptDamage = false;
+
+            _Health -= damageValue;
+
+            Debug.Log("ChangeHp");
+
+            if (_Health <= 0)
+            {
+                Die();
+                DamageEvent?.Invoke();
+            }
+            else
+            {
+                DamageEvent?.Invoke();
+                _resetAccept = StartCoroutine(ResetAcceptDamage());
+                Debug.Log("ResetAccept");
+            }
         }
     }
 
-    private void Die()
+    protected IEnumerator ResetAcceptDamage()
     {
-        Destroy(this.gameObject, 0.2f);
+        yield return new WaitForSecondsRealtime(1f);
 
-        for (int i = 0; i < Random.Range(3, 10); i++)
+        _acceptDamage = true;
+    }
+
+    protected virtual void Die()
+    {
+        _audio.clip = AudioManager.Instance.GetSound("Damage");
+        _audio.Play();
+        
+        if (GetComponent<EnemyBase>())
         {
-            var coin = Instantiate(_coin,
-                new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
-                    transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);
-
-            coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
-                ForceMode2D.Impulse);
+            EnemyDie?.Invoke(this.GetComponent<EnemyBase>());
         }
 
-        if (_blooSplash != null)
+        if (Vector2.Distance(Player.Instance.transform.position, transform.position) <= 4)
         {
-            Instantiate(_blooSplash, transform.position, quaternion.identity);
+            _RippleEffect.RippleEffect(transform.position);
+        }
+        
+        Destroy(this.gameObject, 0.2f);
+
+        if (_coin != null)
+        {
+            for (int i = 0; i < Random.Range(3, 10); i++)
+            {
+                /*var coin = Instantiate(_coin,
+                    new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
+                        transform.position.y + Random.Range(0f, 0.5f), 0), Quaternion.identity);*/
+
+                var coin = Pool.Instance.GetFreeElement(new Vector3(transform.position.x + Random.Range(-0.1f, 0.1f),
+                    transform.position.y + Random.Range(0f, 0.5f), 0));
+
+                coin.GetComponent<Rigidbody2D>().AddForce((Vector2.down + new Vector2(Random.Range(-1f, 1f), 0)) * 5,
+                    ForceMode2D.Impulse);
+            }
+        }
+
+        if (_DeadEffect != null)
+        {
+            Instantiate(_DeadEffect, transform.position, quaternion.identity);
         }
     }
 }

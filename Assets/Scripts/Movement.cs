@@ -2,13 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D _face = null;
     [SerializeField] private List<Rigidbody2D> _rb = new List<Rigidbody2D>();
 
+    [SerializeField] private Vector2 _lenghtJump;
     [SerializeField] private float _jumpPower = 5f;
+
+    private AudioSource _audioSource = null;
+
+    private AudioSource _audio
+    {
+        get => _audioSource = _audioSource ?? GetComponent<AudioSource>();
+    }
 
     private Vector2 _screenSize;
 
@@ -17,6 +26,9 @@ public class Movement : MonoBehaviour
     private void Start()
     {
         _screenSize = new Vector2(Camera.main.pixelWidth, Camera.main.pixelHeight);
+
+        Player.Instance.Rebound += ReboundImpulse;
+        Player.Instance.PlayerHealth.ImpulseEvent += ReboundImpulse;
     }
 
     void Update()
@@ -29,11 +41,18 @@ public class Movement : MonoBehaviour
             {
                 if (t.position.x < (_screenSize.x / 2))
                 {
-                    Jump(Vector2.up * 2 + Vector2.left);
+                    Jump(Vector2.up * _lenghtJump.y + Vector2.left * _lenghtJump.x);
                 }
                 else
                 {
-                    Jump(Vector2.up * 2 + Vector2.right);
+                    Jump(Vector2.up * _lenghtJump.y + Vector2.right * _lenghtJump.x);
+                }
+
+                if (AudioManager.Instance != null)
+                {
+                    _audio.clip = AudioManager.Instance.GetSound("Move0");
+
+                    _audio.Play();
                 }
 
                 //_startTouch = t.position;
@@ -63,13 +82,32 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void ReboundImpulse(Vector2 position, Rigidbody2D rbCol)
+    {
+        Vector2 dir = ((Vector2)transform.position - position).normalized;
+
+        dir *= _lenghtJump;
+
+        Jump(dir * (_lenghtJump / 3));
+        Jump(dir * _lenghtJump, rbCol);
+    }
+
+    private void ReboundImpulse(Vector2 position)
+    {
+        Vector2 dir = ((Vector2)transform.position - position).normalized;
+
+        dir *= _lenghtJump;
+
+        Jump(dir * (_lenghtJump));
+    }
+
     private void Jump(Vector2 dir)
     {
         _face.velocity = Vector2.zero;
         _face.angularVelocity = 0;
 
         _face.velocity = new Vector2(_face.velocity.x, 0);
-        _face.velocity += dir * _jumpPower;
+        _face.AddForce(dir * _jumpPower, ForceMode2D.Impulse);
 
         /*List<Rigidbody2D> rbs = new List<Rigidbody2D>();*/
 
@@ -84,5 +122,14 @@ public class Movement : MonoBehaviour
             _rb[i].velocity = new Vector2(_rb[i].velocity.x, 0);
             _rb[i].velocity += dir * (_jumpPower / 2);
         }
+    }
+
+    private void Jump(Vector2 dir, Rigidbody2D rb)
+    {
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0;
+
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+        rb.AddForce(dir * _jumpPower, ForceMode2D.Impulse);
     }
 }

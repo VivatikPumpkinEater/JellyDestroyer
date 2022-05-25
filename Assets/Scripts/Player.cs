@@ -3,18 +3,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerHealth))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] private int _damage = 1;
     [SerializeField] private Rigidbody2D _center = null;
     [SerializeField] private List<RigidbodyInfo> _rigidbodyInfos = new List<RigidbodyInfo>();
 
+    public Transform Center
+    {
+        get => _center.transform;
+    }
+    
+    public static Player Instance = null;
+
+    public System.Action<Vector2, Rigidbody2D> Rebound;
+
+    private PlayerHealth _playerHealth = null;
+
+    public PlayerHealth PlayerHealth
+    {
+        get => _playerHealth = _playerHealth ?? GetComponent<PlayerHealth>();
+    }
+
     private void Awake()
     {
+        /*CheckInstance();
+        
+        foreach (var info in _rigidbodyInfos)
+        {
+            info.Collision += Punch;
+            info.Drag += Slam;
+        }*/
+    }
+
+    private void OnEnable()
+    {
+        CheckInstance();
+
         foreach (var info in _rigidbodyInfos)
         {
             info.Collision += Punch;
             info.Drag += Slam;
         }
+    }
+
+    private void CheckInstance()
+    {
+        if (Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            Instance = null;
+        }
+
+        Instance = this;
     }
 
     private void Update()
@@ -26,9 +68,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Punch(Enemy enemy)
+    private void Punch(HealthManager sufferer, Rigidbody2D rbCol)
     {
-        enemy.Damage();
+        Rebound?.Invoke(sufferer.transform.position, rbCol);
+        sufferer.Damage(_damage, this.transform.position);
     }
 
     private void Slam()
@@ -43,7 +86,8 @@ public class Player : MonoBehaviour
                 //var rb = inRadius[i].attachedRigidbody;
                 var rb = slamPunch[i].attachedRigidbody;
 
-                if (rb && !rb.GetComponent<RigidbodyInfo>() && !rb.gameObject.layer.Equals(LayerMask.GetMask("CoinUse")))
+                if (rb && !rb.GetComponent<RigidbodyInfo>() &&
+                    !rb.gameObject.layer.Equals(LayerMask.GetMask("CoinUse")))
                 {
                     if (rb.position.x > _center.position.x)
                     {
@@ -53,7 +97,6 @@ public class Player : MonoBehaviour
                     {
                         rb.AddForce((Vector2.up * 2 + Vector2.left) * 10, ForceMode2D.Impulse);
                     }
-                    
                 }
             }
         }

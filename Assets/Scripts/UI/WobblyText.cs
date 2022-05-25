@@ -51,7 +51,7 @@ public class WobblyText : MonoBehaviour
             {
                 var origin = verts[characterInfo.vertexIndex + j];
                 verts[characterInfo.vertexIndex + j] =
-                    origin + new Vector3(0, Mathf.Sin(Time.time * waveSpeed.y + origin.x * waveSpeed.x) * multiply, 0);
+                    origin + new Vector3(0, Mathf.Sin(Time.unscaledTime * waveSpeed.y + origin.x * waveSpeed.x) * multiply, 0);
             }
         }
 
@@ -90,8 +90,8 @@ public class WobblyText : MonoBehaviour
                 
                 var origin = verts[characterInfo.vertexIndex + j];
                 verts[characterInfo.vertexIndex + j] =
-                    origin + new Vector3(Mathf.Sin(Time.time * waveSpeed.y * offset + origin.y * waveSpeed.x) * multiply,
-                        Mathf.Sin(Time.time * waveSpeed.y * -offset + origin.y * waveSpeed.x) * multiply, 0);
+                    origin + new Vector3(Mathf.Sin(Time.unscaledTime * waveSpeed.y * offset + origin.y * waveSpeed.x) * multiply,
+                        Mathf.Sin(Time.unscaledTime * waveSpeed.y * -offset + origin.y * waveSpeed.x) * multiply, 0);
             }
         }
 
@@ -143,7 +143,7 @@ public class WobblyText : MonoBehaviour
 
         for (int i = 0; i < vertices.Length; i++)
         {
-            Vector3 offset = Wobble(Time.time + i + waveSpeed.y);
+            Vector3 offset = Wobble(Time.unscaledTime + i + waveSpeed.y);
 
             vertices[i] = vertices[i] + offset;
         }

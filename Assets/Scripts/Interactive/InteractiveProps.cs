@@ -16,23 +16,29 @@ public class InteractiveProps : MonoBehaviour
     {
         get => _animator = _animator ?? GetComponent<Animator>();
     }
+
     protected virtual void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Collision");
         var player = col.gameObject.GetComponentInParent<Player>();
-        
-        if(!_Collision && player)
+
+        if (!_Collision && player)
         {
             _Collision = true;
-            
-            _Anim.SetTrigger("Hit");
+
+            Hit();
         }
     }
 
-    protected void Slam()
+    public virtual void Hit()
+    {
+        _Anim.SetTrigger("Hit");
+    }
+
+    protected virtual void Slam()
     {
         var slamPunch = Physics2D.OverlapBoxAll(transform.position, new Vector2(3, 1), 0);
-        
+
         for (int i = 0; i < slamPunch.Length; i++)
         {
             //var rb = inRadius[i].attachedRigidbody;
@@ -48,7 +54,6 @@ public class InteractiveProps : MonoBehaviour
                 {
                     rb.AddForce((Vector2.up * 2 + Vector2.left) * _Force, ForceMode2D.Impulse);
                 }
-                    
             }
         }
     }

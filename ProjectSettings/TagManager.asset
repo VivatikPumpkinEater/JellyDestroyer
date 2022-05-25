@@ -13,15 +13,15 @@ TagManager:
   - UI
   - 
   - 
-  - CoinUse
-  - CoinNoUse
+  - NoInteractive
+  - Interactive
   - Player
   - Rock
-  - NoInteractive
-  - 
-  - 
-  - 
-  - 
+  - Traps
+  - Boss
+  - PostProcessing
+  - Bullet
+  - Enemy
   - 
   - 
   - 
@@ -38,9 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
+  - name: BG
+    uniqueID: 2236360709
+    locked: 0
+  - name: Boss
+    uniqueID: 3726833271
     locked: 0
   - name: FlyEnemy
     uniqueID: 468114475
+    locked: 0
+  - name: Environment
+    uniqueID: 3137402967
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
