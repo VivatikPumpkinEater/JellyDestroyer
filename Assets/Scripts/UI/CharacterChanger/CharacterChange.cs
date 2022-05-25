@@ -96,17 +96,21 @@ public class CharacterChange : MonoBehaviour
             _money -= _charcters[_actualIndex].Cost;
             
             _charcters[_actualIndex].Acquired = true;
-            
-            //_playerSave.AcquiredSkinsList.Add(_charcters[_actualIndex]);
 
-            UpdateName();
-            _coinsCounter.UpdateCoinsInfo(_money);
+            //_playerSave.AcquiredSkinsList.Add(_charcters[_actualIndex]);
+            
+            //_coinsCounter.UpdateCoinsInfo(_money);
+            _coinsCounter.MinusCoins(_charcters[_actualIndex].Cost);
+            
+            SelectCharacter();
         }
     }
 
     private void SelectCharacter()
     {
         _playerSave.ActiveCharacter = _charcters[_actualIndex];
+        
+        UpdateName();
     }
 
     private void BackToMainMenu()
@@ -143,6 +147,12 @@ public class CharacterChange : MonoBehaviour
             {
                 _costTextComponents[i].text = _charcters[_actualIndex].Cost.ToString();
             }
+        }
+
+        if (_charcters[_actualIndex] == _playerSave.ActiveCharacter)
+        {
+            _buy.gameObject.SetActive(false);
+            _select.gameObject.SetActive(false);
         }
     }
 }

@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviour
 
     private static int _coinsOneRun = 0;
 
+    private Coroutine _coroutineCounter = null;
+
     public int CoinsOneRun
     {
         get => _coinsOneRun;
@@ -111,7 +113,12 @@ public class UIManager : MonoBehaviour
 
         _actualArena = 1;
 
-        StartCoroutine(CoinsCount());
+        if (_coroutineCounter != null)
+        {
+            StopCoroutine(_coroutineCounter);
+        }
+
+        _coroutineCounter = StartCoroutine(CoinsCount());
     }
 
     private IEnumerator CoinsCount()
@@ -128,10 +135,10 @@ public class UIManager : MonoBehaviour
 
     private void Menu()
     {
-        SceneManager.LoadScene(0);
-        
-        _slowMo.DisableSlowMotion();
         _dontDestroy.DestroyAll();
+        _slowMo.DisableSlowMotion();
+        
+        SceneManager.LoadScene(0);
     }
 
     public void Pause(bool status)

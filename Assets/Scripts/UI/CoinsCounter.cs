@@ -9,6 +9,8 @@ public class CoinsCounter : MonoBehaviour
     [SerializeField] private Text _coinsTxt = null;
 
     private int _coins = 0;
+
+    private Coroutine _minusCoroutine = null;
     
     private void Awake()
     {
@@ -39,6 +41,27 @@ public class CoinsCounter : MonoBehaviour
         _coins = money;
         
         UpdateCoinsInfo();
+    }
+
+    public void MinusCoins(int cost)
+    {
+        if (_minusCoroutine != null)
+        {
+            StopCoroutine(_minusCoroutine);
+        }
+        
+        _minusCoroutine = StartCoroutine(MinusCoroutine(cost));
+    }
+
+    private IEnumerator MinusCoroutine(int iteration)
+    {
+        for (int i = 0; i < iteration / 5; i++)
+        {
+            _coins -= 5;
+            UpdateCoinsInfo();
+
+            yield return null;
+        }
     }
 
     private void OnDestroy()
