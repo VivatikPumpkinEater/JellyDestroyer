@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7045175756813005680}
   - component: {fileID: 2909051536514203184}
   - component: {fileID: 7044984549734464676}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,11 +51,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293962881965229
 CircleCollider2D:
@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 5983040919311818787}
   - component: {fileID: 3246329485317127730}
   - component: {fileID: 535731098256298094}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,11 +196,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963182275570
 CircleCollider2D:
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 3656617517412050476}
   - component: {fileID: 5805136993183540717}
   - component: {fileID: 6522937052488293450}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,11 +341,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963240128203
 CircleCollider2D:
@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 7208293963476446210}
   - component: {fileID: 8048351579458082022}
   - component: {fileID: 6777613908159004681}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Center
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963476446210
 CircleCollider2D:
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 3552928474634240378}
   - component: {fileID: 889315466770587400}
   - component: {fileID: 5717457878256095013}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -597,11 +597,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963567609618
 CircleCollider2D:
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 3144390200065117286}
   - component: {fileID: 720122562155635142}
   - component: {fileID: 2010408851844427220}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,11 +742,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963581012064
 CircleCollider2D:
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 4279485477275560487}
   - component: {fileID: 8877828645240905397}
   - component: {fileID: 2149089869874391702}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -887,11 +887,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293963956209004
 CircleCollider2D:
@@ -996,7 +996,7 @@ GameObject:
   - component: {fileID: 4500467572440471358}
   - component: {fileID: 677446792601980262}
   - component: {fileID: 6616858711122408147}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1032,11 +1032,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293964130124516
 CircleCollider2D:
@@ -1143,7 +1143,8 @@ GameObject:
   - component: {fileID: 7208293964612494394}
   - component: {fileID: 7208293964612494397}
   - component: {fileID: 7208293964612494396}
-  m_Layer: 0
+  - component: {fileID: 2377808497309631622}
+  m_Layer: 10
   m_Name: Donut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1282,12 +1283,12 @@ FixedJoint2D:
   m_Enabled: 1
   serializedVersion: 4
   m_EnableCollision: 0
-  m_ConnectedRigidBody: {fileID: 0}
+  m_ConnectedRigidBody: {fileID: 7208293963476446211}
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0.0059993984, y: 0.004465636}
   m_DampingRatio: 0
   m_Frequency: 0
 --- !u!114 &7208293964612495297
@@ -1332,7 +1333,7 @@ MonoBehaviour:
   _Health: 1
   _DeadEffect: {fileID: 0}
   _coin: {fileID: 0}
-  _playerStats: {fileID: 0}
+  _playerStats: {fileID: 11400000, guid: 5799524bf57f85d4e854794567cd424a, type: 2}
 --- !u!114 &7208293964612494397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,8 +1379,104 @@ MonoBehaviour:
   - {fileID: 7208293963240128200}
   - {fileID: 7208293963182275571}
   - {fileID: 7208293962881965226}
-  _lenghtJump: {x: 2, y: 5}
+  _lenghtJump: {x: 2, y: 4}
   _jumpPower: 5
+--- !u!82 &2377808497309631622
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208293964612495301}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7208293964668038383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1395,7 +1492,7 @@ GameObject:
   - component: {fileID: 1308176712525670671}
   - component: {fileID: 5699289549312840094}
   - component: {fileID: 933432390590232784}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bone_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1431,11 +1528,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &7208293964668038381
 CircleCollider2D:

@@ -29,6 +29,8 @@ public class Coin : PickUp
     protected override void GoToUI()
     {
         base.GoToUI();
+
+        UIManager.Instance.CoinsOneRun = 1;
         
         _coinsCounter.AddCoin();
     }

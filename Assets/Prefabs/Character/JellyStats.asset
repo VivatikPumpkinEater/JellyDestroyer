@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JellyStats
   m_EditorClassIdentifier: 
   Name: Jelly
-  Cost: 1000
+  Cost: 69000
   Health: 3
   Damage: 1
   PlayerPrefab: {fileID: 5134433472586875641, guid: 0871c51713596814fa655dca1abe90cf,

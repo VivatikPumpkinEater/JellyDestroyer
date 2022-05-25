@@ -284,6 +284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 83396100}
     m_Modifications:
+    - target: {fileID: 1388197792, guid: dacf1eacca74b564eb4bf5272f3061eb, type: 3}
+      propertyPath: MaxAmount
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 7942137785694231516, guid: dacf1eacca74b564eb4bf5272f3061eb,
         type: 3}
       propertyPath: m_Name
@@ -396,6 +400,16 @@ PrefabInstance:
       propertyPath: _dontDestroy
       value: 
       objectReference: {fileID: 83396102}
+    - target: {fileID: 2260821466976457396, guid: 349a7f0d5b57f404da6de1c5c1d25df3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2260821467441483849, guid: 349a7f0d5b57f404da6de1c5c1d25df3,
+        type: 3}
+      propertyPath: m_Text
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6731637772077885412, guid: 349a7f0d5b57f404da6de1c5c1d25df3,
         type: 3}
       propertyPath: m_Pivot.x
@@ -861,7 +875,7 @@ TilemapRenderer:
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
-  m_SortOrder: 0
+  m_SortOrder: 2
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 2
@@ -1041,7 +1055,7 @@ TilemapRenderer:
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
-  m_SortOrder: 0
+  m_SortOrder: 2
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0

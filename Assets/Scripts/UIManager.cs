@@ -25,6 +25,14 @@ public class UIManager : MonoBehaviour
     [SerializeField] private DontDestroy _dontDestroy = null;
     [SerializeField] private SlowMo _slowMo = null;
 
+    private static int _coinsOneRun = 0;
+
+    public int CoinsOneRun
+    {
+        get => _coinsOneRun;
+        set => _coinsOneRun++;
+    }
+    
     private float _timeScaleGameOver = 25f;
     
     private static int _actualArena = 1;
@@ -102,6 +110,20 @@ public class UIManager : MonoBehaviour
         _bestArena.text = PlayerPrefs.GetInt("BestArena").ToString();
 
         _actualArena = 1;
+
+        StartCoroutine(CoinsCount());
+    }
+
+    private IEnumerator CoinsCount()
+    {
+        for (int i = 0; i < _coinsOneRun; i++)
+        {
+            _coins.text = i.ToString();
+
+            yield return null;
+        }
+
+        _coinsOneRun = 0;
     }
 
     private void Menu()

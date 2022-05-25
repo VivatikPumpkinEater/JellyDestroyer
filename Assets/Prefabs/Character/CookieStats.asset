@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CookieStats
   m_EditorClassIdentifier: 
   Name: Mr. Cookie
-  Cost: 15000
+  Cost: 5000
   Health: 3
   Damage: 1
   PlayerPrefab: {fileID: 6352469601617368301, guid: 3c18dec09f9724a4eb12e2024af24f16,
